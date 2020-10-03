@@ -1,0 +1,83 @@
+.heart {
+    cursor: pointer;
+    height: 50px;
+    width: 50px;
+    background-image:url("https://abs.twimg.com/a/1446542199/img/t1/web_heart_animation.png");
+    background-position: left;
+    background-repeat:no-repeat;
+    background-size: 2900%;
+    margin: -15px;
+}
+
+.heart.liked {
+    animation: heart-burst .8s steps(28) 1;
+    background-position:right;
+}
+
+@keyframes heart-burst {
+    from {background-position:left;}
+    to { background-position:right;}
+}
+
+.heart:hover {
+    background-position:right;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+#tweet-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50vw;
+    margin-top: 10px;
+}
+
+#tweet-form #post {
+    width: 80%;
+    height: 15vh;
+}
+
+#tweet-form #submit {
+    width: 20%;
+    height: 5vh;
+    margin-top: 10px;
+}
+
+.post {
+    border: 1px solid black;
+    width: 80vw;
+}
+
+.info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.likes {
+    padding-top: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+.edit-button {
+    margin-bottom: 200px;
+}
+
+.post {
+    border-radius: 15px;
+    margin-top: 10px;
+}
+
+#login-form, #register-form {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}

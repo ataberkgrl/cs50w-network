@@ -1,0 +1,38 @@
+{% for post in page_obj %}
+    <div class="post card-body" data-postid="{{ post.id }}">
+        <p class="username"><a href="/profile/{{ post.posted_user }}">{{ post.posted_user.get_username }}</a></p>
+        <p class="content">{{ post.content }}</p>
+        {% if user.get_username == post.posted_user.get_username %}
+            <a href="#"class="edit-button">Edit</a>
+        {% endif %}
+        <div class="info">
+            <div class="likes">
+                {% if post in user.liked_posts.all %} 
+                    <div class="heart liked"></div>
+                {% else %}
+                    <div class="heart"></div>
+                {% endif %}
+                <div class="like-count">{{ post.liked_users.count }}</div>
+            </div>
+            <p class="datetime">{{ post.datetime }}</p>
+        </div>
+    </div>
+{% endfor %}
+
+<div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+</div>

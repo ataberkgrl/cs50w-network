@@ -1,0 +1,22 @@
+{% extends "network/layout.html" %}
+
+{% block main %}
+
+    <h1 id="profile-username">{{ username }}</h1>
+    <div>
+        <p1>Followers: <span id="follower-count">{{ followers_count }}</span></p1>
+        <p1>Following: {{ following_count }}</p1>
+    </div>
+    {% if user.is_authenticated and username != user.get_username %}
+        <button type="button" id="follow-button">
+            {% if is_followed != True  %}
+                Follow
+            {% else %}
+                Unfollow
+            {% endif %}
+        </button>
+    {% endif %}
+    
+        {% include "network/posts.html" %}
+
+{% endblock %}

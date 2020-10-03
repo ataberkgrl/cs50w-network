@@ -1,0 +1,12 @@
+{% extends "network/layout.html" %}
+
+{% block main %}
+
+    <form id="tweet-form" method="POST" action="/"> {% csrf_token %}
+        <textarea class="form-control" id="post" name="post"></textarea>
+        <button class="btn btn-primary" id="submit" type="submit">Post</button>
+    </form>
+
+        {% include "network/posts.html" %}
+
+{% endblock %}
