@@ -7,7 +7,6 @@ To read the details of the project click [here](https://cs50.harvard.edu/web/202
 ## To Run
 
 ```bash
-python manage.py makemigrations
 python manage.py migrate
 python manage.py runserver
 ```
